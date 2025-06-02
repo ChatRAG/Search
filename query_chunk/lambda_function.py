@@ -60,6 +60,7 @@ def handler(event, context):
             doc = hit["_source"]
             cid = doc.get("chunk_id")
             if cid not in seen_ids:
+                doc['embedding'] = None
                 vector_docs.append(doc)
                 seen_ids.add(cid)
 
