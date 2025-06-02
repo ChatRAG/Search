@@ -106,8 +106,7 @@ def main():
 
         print("[✓] Done. Published layer version:", version)
     finally:
-        #cleanup()
-        pass
+        cleanup()
 
 
 if __name__ == "__main__":
