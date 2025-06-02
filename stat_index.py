@@ -3,7 +3,8 @@ import json
 
 host = 'search-chatrag-opensearch-wz6fxha74dkfc4ojr5kww7tf5e.ap-southeast-2.es.amazonaws.com'
 port = 443
-auth = ('admin', 'Chatrag-2025')
+password = input('password: ')
+auth = ('admin', password)
 
 client = OpenSearch(
     hosts=[{'host': host, 'port': port}],

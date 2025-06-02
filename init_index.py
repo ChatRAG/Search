@@ -3,7 +3,8 @@ import json
 
 host = 'search-chatrag-opensearch-wz6fxha74dkfc4ojr5kww7tf5e.ap-southeast-2.es.amazonaws.com'
 port = 443
-auth = ('admin', 'Chatrag-2025')
+password = input('password: ')
+auth = ('admin', password)
 
 client = OpenSearch(
     hosts=[{'host': host, 'port': port}],
@@ -77,3 +78,8 @@ if not client.indices.exists(index="word_search_index"):
     print("Created word_search_index:", json.dumps(response, indent=2))
 else:
     print("word_search_index already exists.")
+
+# Use
+# DELETE /embedding_index
+# DELETE /word_search_index
+# To delete indexes
