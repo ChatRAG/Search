@@ -3,7 +3,7 @@ import common.embed as e
 import common.client as c
 
 client = c.get_client()
-top_k = 10
+top_k = 5
 
 
 def handler(event, context):
