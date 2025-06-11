@@ -1,6 +1,7 @@
 import json
 import common.embed as e
 import common.client as c
+import common.rerank as r
 
 client = c.get_client()
 top_k = 5
@@ -66,10 +67,17 @@ def handler(event, context):
 
         combined_docs = text_docs + vector_docs
 
+        print(f"#combined_docs={len(combined_docs)}, combined_docs={combined_docs}")
+
+        # do reranking
+        reranked_docs = r.rerank(query_text, combined_docs)
+
+        print(f"#reranked_docs={len(reranked_docs)}, reranked_docs={reranked_docs}")
+
         return {
             "statusCode": 200,
             "body": json.dumps({
-                "results": combined_docs
+                "results": reranked_docs
             })
         }
 
